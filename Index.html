@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ElectroMart - Instant Demo</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI',sans-serif;background:#f0f2f5;overflow-x:hidden}.demo-container{max-width:1400px;margin:0 auto;padding:20px}.header{position:sticky;top:0;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:white;z-index:100;box-shadow:0 4px 20px rgba(0,0,0,.2)}.header-content{display:flex;justify-content:space-between;align-items:center;padding:20px 40px;flex-wrap:wrap;gap:20px}.logo{font-size:2rem;font-weight:800;display:flex;align-items:center;gap:15px}.nav-buttons{display:flex;gap:15px;flex-wrap:wrap}.btn{padding:12px 24px;border:none;border-radius:25px;font-weight:600;cursor:pointer;transition:all .3s;font-size:14px}.btn-primary{background:#ff6b6b;color:white}.btn-secondary{background:transparent;color:white;border:2px solid white}.btn:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,0,0,.3)}.hero{background:linear-gradient(135deg,rgba(102,126,234,.95),rgba(118,75,162,.95)),url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><rect fill="%23000" width="1920" height="1080" opacity=".3"/><circle fill="%23fff" cx="400" cy="300" r="150" opacity=".1"/><circle fill="%23ff6b6b" cx="1400" cy="400" r="200" opacity=".2"/></svg>');background-size:cover;color:white;text-align:center;padding:120px 40px;position:relative;overflow:hidden}.hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(45deg,transparent 30%,rgba(255,255,255,.1) 50%,transparent 70%);animation:shine 3s infinite}.hero h1{font-size:clamp(3rem,8vw,6rem);margin-bottom:20px;font-weight:900;letter-spacing:-2px;text-shadow:0 4px 20px rgba(0,0,0,.5);animation:fadeInUp 1s ease}.hero p{font-size:clamp(1.2rem,4vw,2rem);margin-bottom:40px;opacity:.95;max-width:800px;margin-left:auto;margin-right:auto;animation:fadeInUp 1s ease .3s both}.section{padding:80px 40px;background:white}.section-alt{background:linear-gradient(135deg,#f8f9fa 0%,#e9ecef 100%);}.section-title{text-align:center;font-size:clamp(2.5rem,6vw,4rem);margin-bottom:60px;color:#1e3c72;position:relative}.section-title::after{content:'';display:block;width:80px;height:4px;background:linear-gradient(45deg,#667eea,#764ba2);margin:20px auto 0;border-radius:2px}.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px}.feature-card{background:white;padding:40px 30px;border-radius:25px;text-align:center;box-shadow:0 10px 40px rgba(0,0,0,.08);transition:all .4s;border:1px solid #f0f2f5}.feature-card:hover{transform:translateY(-15px) scale(1.02);box-shadow:0 25px 60px rgba(0,0,0,.15)}.feature-icon{font-size:4.5rem;margin-bottom:20px;background:linear-gradient(45deg,#667eea,#764ba2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}.feature-card h3{font-size:1.6rem;margin-bottom:15px;color:#1e3c72}.demo-cta{text-align:center;padding:80px 40px;background:linear-gradient(135deg,#ff6b6b 0%,#ee5a52 100%);color:white}.demo-buttons{display:flex;gap:25px;justify-content:center;flex-wrap:wrap;margin-top:40px}.demo-btn{font-size:1.3rem;padding:20px 50px}.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;margin-top:60px}.stat-card{text-align:center;padding:30px;background:white;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,.1)}.stat-number{font-size:3.5rem;font-weight:800;background:linear-gradient(45deg,#667eea,#764ba2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;margin-bottom:10px}.footer{background:#1a1a1a;color:#ccc;padding:60px 40px 30px}.footer-content{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:40px;margin-bottom:40px}.footer-section h3{color:white;margin-bottom:20px;font-size:1.3rem}.footer-section ul{list-style:none}.footer-section li{margin-bottom:10px}.footer-bottom{text-align:center;padding-top:30px;border-top:1px solid #333;color:#888}@keyframes fadeInUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}@keyframes shine{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}@media(max-width:768px){.header-content{flex-direction:column;text-align:center;padding:20px}.nav-buttons{order:2}.hero{padding:80px 20px 60px}.section{padding:60px 20px}.demo-buttons{flex-direction:column;align-items:center}.demo-btn{width:100%;max-width:350px;margin-bottom:15px}.stats-grid{grid-template-columns:repeat(2,1fr)}}
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-bolt" style="color:#ffd700;font-size:2.2rem"></i>
+                    ElectroMart
+                </div>
+                <div class="nav-buttons">
+                    <a href="#features" class="btn btn-secondary"><i class="fas fa-star"></i> Features</a>
+                    <a href="#demo" class="btn btn-primary" onclick="scrollToDemo()"><i class="fas fa-rocket"></i> Live Demo</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero -->
+        <section class="hero">
+            <h1>⚡ ElectroMart Demo</h1>
+            <p>Complete Electronics Business Solution<br>AC • Cooler • TV • Mobile • Free Delivery • Online Payment</p>
+            <div style="font-size:1.3rem;opacity:.9;margin-top:30px">
+                📱 Instant Mobile App • 💻 Full Website • 👨‍💼 Admin Panel
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="section" id="features">
+            <h2 class="section-title">Complete Business Solution</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🚚</div>
+                    <h3>Free Delivery</h3>
+                    <p>24 hours delivery across India. Same day delivery available in major cities.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💳</div>
+                    <h3>Online Payments</h3>
+                    <p>UPI, Cards, Wallets. Secure payment gateway with multiple options.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Mobile App Ready</h3>
+                    <p>PWA enabled. Install as native app. Works offline.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👨‍💼</div>
+                    <h3>Admin Dashboard</h3>
+                    <p>Orders, Products, Delivery tracking. Complete business management.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛒</div>
+                    <h3>Shopping Cart</h3>
+                    <p>Real-time cart with total calculation. Add/remove items easily.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Analytics</h3>
+                    <p>Sales reports, customer data, inventory management.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo CTA -->
+        <section class="demo-cta" id="demo">
+            <h2 style="font-size:clamp(2.8rem,7vw,5rem);margin-bottom:20px">Ready to Test?</h2>
+            <p style="font-size:1.4rem;opacity:.95;margin-bottom:10px">Click below for LIVE DEMO</p>
+            <div style="font-size:1.2rem;opacity:.9">Works instantly - No installation needed!</div>
+            <div class="demo-buttons">
+                <button class="demo-btn btn-primary" onclick="launchMobileDemo()">
+                    📱 Mobile App Demo
+                </button>
+                <button class="demo-btn btn-secondary" onclick="launchWebDemo()">
+                    💻 Full Website Demo
+                </button>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">127+</span>
+                    Orders Today
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">₹2.4L</span>
+                    Daily Sales
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">24h</span>
+                    Delivery Time
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">156</span>
+                    Products
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-bolt" style="color:#ffd700"></i> ElectroMart</h3>
+                    <p>Complete electronics business demo with modern design and full functionality.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Products</h3>
+                    <ul>
+                        <li>❄️ AC & Coolers</li>
+                        <li>📺 TVs</li>
+                        <li>📱 Mobiles</li>
+                        <li>🧊 Appliances</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li>🚚 Free Delivery</li>
+                        <li>💳 Online Payment</li>
+                        <li>📦 Order Tracking</li>
+                        <li>👨‍💼 Admin Panel</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-envelope"></i> demo@electromart.in</p>
+                    <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 ElectroMart Demo | Instant Ready • No Setup Required 🚀</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function scrollToDemo(){document.getElementById('demo').scrollIntoView({behavior:'smooth'})}
+        function launchMobileDemo(){alert('📱 MOBILE APP DEMO LAUNCHED!\n\n✅ Copy previous MOBILE APP CODE\n✅ Save as electromart-app.html\n✅ Open in Chrome Mobile\n✅ Add to Home Screen\n\nWorks like real app! 🎉')}
+        function launchWebDemo(){alert('💻 FULL WEBSITE DEMO!\n\n✅ Copy previous WEBSITE CODE\n✅ Save as electromart-website.html\n✅ Double-click to open\n\nComplete shopping + admin system! 🔥')}
+        
+        // Smooth scroll for nav
+        document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'})}));
+        
+        // Header scroll effect
+        window.addEventListener('scroll',()=>{document.querySelector('.header').style.background=`linear-gradient(135deg,#667eea ${Math.min(100,window.scrollY/3)}%,#764ba2 100%)`});
+        
+        // Intersection Observer for animations
+        const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting)entry.target.style.animation='fadeInUp 1s ease both'})});document.querySelectorAll('.feature-card').forEach(el=>observer.observe(el));
+        
+        console.log('🎉 ElectroMart Demo Loaded Successfully!\n📱 Mobile: Copy previous app code\n💻 Website: Copy previous website code');
+    </script>
+</body>
+  </html>
